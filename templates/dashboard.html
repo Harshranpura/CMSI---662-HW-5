@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>What would you like to do today?</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <p><a href="/details?account=100">Savings account details</a></p>
+    <p><a href="/details?account=998">Checking account details</a></p>
+    <p><a href="/transfer">Transfer</a></p>
+    <p><a href="/logout">Logout</a></p>
+</body>
+</html>
